@@ -32,15 +32,21 @@ const scriptSrcUrls = [
   'https://unpkg.com/',
   'https://tile.openstreetmap.org',
   'https://cdn.jsdelivr.net/',
+  'https://js.stripe.com/',
 ];
 const styleSrcUrls = [
   'https://unpkg.com/',
   'https://tile.openstreetmap.org',
   'https://fonts.googleapis.com/',
+  'https://js.stripe.com/',
 ];
-const connectSrcUrls = ['https://unpkg.com', 'https://tile.openstreetmap.org'];
+const connectSrcUrls = [
+  'https://unpkg.com',
+  'https://tile.openstreetmap.org',
+  'https://js.stripe.com/',
+];
 const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
-
+const frameSrcUrls = ['https://js.stripe.com/'];
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -52,6 +58,7 @@ app.use(
       objectSrc: [],
       imgSrc: ["'self'", 'blob:', 'data:', 'https:'],
       fontSrc: ["'self'", ...fontSrcUrls],
+      frameSrc: [...frameSrcUrls],
     },
   }),
 );
