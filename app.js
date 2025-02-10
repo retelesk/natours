@@ -21,11 +21,11 @@ const viewRouter = require('./routes/viewRoutes');
 const app = express();
 
 app.set('view engine', 'pug');
-app.set('views', (path.join(__dirname), 'views'));
+app.set('views', path.join(__dirname, 'views'));
 
 // 02. GLOBAL MIDDLEWARE
 // Serving static files
-app.use(express.static((path.join(__dirname), 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Set security HTTP headers
 // Further HELMET configuration for Security Policy (CSP)
