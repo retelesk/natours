@@ -1,5 +1,6 @@
 bower_components
 node_modules
+config.env
 libs
 .cache
 .parcel-cache
