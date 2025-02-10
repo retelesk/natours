@@ -1,7 +1,6 @@
 // Dự án express
 const path = require('path');
 const express = require('express');
-
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
@@ -11,6 +10,7 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
+
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
@@ -82,7 +82,12 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter);
-app.post('/webhook-checkout', express.raw, bookingController.webhookCheckout);
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout,
+);
+
 // Để sử dụng MiddleWare, dùng app.use() <- Thêm MiddleWare vào MiddleWare Stack
 // Body parser, reading data from body into req.body
 app.use(

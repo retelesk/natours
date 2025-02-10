@@ -5,6 +5,7 @@ import '@babel/polyfill';
 import { displayMap } from './leaflet';
 import { bookTour } from './stripe';
 import { hideAlert, showAlert } from './alert';
+
 // DOM Elements
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
@@ -12,6 +13,7 @@ const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-settings');
 const bookBtn = document.getElementById('book-tour');
+
 // Delegation
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
@@ -65,4 +67,4 @@ if (bookBtn) {
   });
 }
 const alertMessage = document.querySelector('body').dataset.alert;
-if (alert) showAlert('success', alertMessage, 10);
+if (alertMessage) showAlert('success', alertMessage, 10);
