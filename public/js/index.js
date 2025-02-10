@@ -4,6 +4,7 @@ import { updateSettings } from './updateSettings';
 import '@babel/polyfill';
 import { displayMap } from './leaflet';
 import { bookTour } from './stripe';
+import { hideAlert, showAlert } from './alert';
 // DOM Elements
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
@@ -63,3 +64,5 @@ if (bookBtn) {
     bookTour(tourId);
   });
 }
+const alertMessage = document.querySelector('body').dataset.alert;
+if (alert) showAlert('success', alertMessage, 10);
