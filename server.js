@@ -11,11 +11,12 @@ dotenv.config({ path: './config.env' });
 
 const app = require('./app');
 
-const DB = process.env.DATABASE_ATLAS.replace(
+const DB = process.env.DATABASE.replace(
   '<DB_PASSWORD>',
   process.env.DATABASE_PASSWORD,
 );
-mongoose.connect(DB).then(() => {
+mongoose.connect(DB, { authSource: 'admin' }).then(() => {
+  mongoose.connection.useDb('Natours');
   console.log('DB connection successful!');
 });
 
