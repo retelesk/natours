@@ -27,8 +27,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 // 02. GLOBAL MIDDLEWARE
 // Serving static files
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.options('*', cors());
+// app.options('api/v1/tours/:id', cors());
 // Set security HTTP headers
 // Further HELMET configuration for Security Policy (CSP)
 const scriptSrcUrls = [
