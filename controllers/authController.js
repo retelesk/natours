@@ -40,7 +40,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm,
   });
   const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
+  // console.log(url);
 
   await new Email(newUser, url).sendWellcome();
   // Tạo 1 Json Web Token để xác thực
